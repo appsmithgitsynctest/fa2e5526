@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "postgres-plugin",
   "unpublishedAction": {
-    "name": "SelectQuery",
+    "name": "DeleteQuery",
     "datasource": {
       "name": "d668bcdf",
       "pluginId": "postgres-plugin",
@@ -13,35 +13,31 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Page1",
+    "pageId": "crudpage_1 Copy",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "SELECT * FROM public.\"configs\"\nWHERE \"configName\" ilike '%{{Table1.searchText || \"\"}}%'\nORDER BY \"{{col_select.selectedOptionValue}}\" {{order_select.selectedOptionValue}}\nLIMIT {{Table1.pageSize}}\nOFFSET {{(Table1.pageNo - 1) * Table1.pageSize}};",
+      "body": "DELETE FROM public.\"configs\"\n  WHERE \"id\" = {{Table1.triggeredRow.id}};",
       "pluginSpecifiedTemplates": [
         {
-          "value": false
+          "value": true
         }
       ]
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "(Table1.pageNo - 1) * Table1.pageSize",
-      "Table1.pageSize",
-      "Table1.searchText || \"\"",
-      "col_select.selectedOptionValue",
-      "order_select.selectedOptionValue"
+      "Table1.triggeredRow.id"
     ],
-    "userSetOnLoad": true,
+    "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Page1_SelectQuery",
+  "id": "crudpage_1 Copy_DeleteQuery",
   "deleted": false,
-  "gitSyncId": "6278d9fa81fc485752827ab9_6278da0581fc485752827ac0"
+  "gitSyncId": "6278d9fa81fc485752827ab9_6278da2581fc485752827ace"
 }
